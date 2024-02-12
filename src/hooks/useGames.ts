@@ -19,6 +19,7 @@ const useGames = () => {
 
   const fetchGames = async () => {
     try {
+      // const getData = axios.get<GameResponse>(import.meta.env.API + "/games");
       const response = await apiClient.get<GameResponse>("/games", { signal: controller.signal });
       setGames(response.data.results);
     } catch (error) {
