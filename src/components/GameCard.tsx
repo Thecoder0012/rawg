@@ -3,6 +3,7 @@ import React from "react";
 import { Game } from "../hooks/useGames";
 import PlatformIcons from "./PlatformIcons";
 import CriticScore from "./CriticScore";
+import getCroppedImageUrl from "../services/image-crop";
 
 interface Props {
   game: Game;
@@ -10,8 +11,8 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card>
-      <Image src={game.background_image} overflow="hidden" borderRadius="10" />
+    <Card width="width">
+      <Image src={getCroppedImageUrl(game.background_image)} overflow="hidden" borderRadius="10" />
       <CardBody>
         <HStack justifyContent="space-between">
           <PlatformIcons
