@@ -13,21 +13,18 @@ function App() {
           lg: `"nav nav" "aside main"`,
         }}
       >
-        <GridItem bg="orange.300" gridArea={"nav"}>
-          <NavBar />
+        <GridItem gridArea={"nav"}>
+        <NavBar />
+      </GridItem>
+      <Show above="lg">
+        <GridItem gridArea={"aside"}>
+          <GenreList />
         </GridItem>
-        <Show above="lg">
-          <GridItem bg="pink.300" gridArea={"aside"}>
-            Aside
-          </GridItem>
-        </Show>
-
-        <GridItem bg="green.300" gridArea={"main"}>
-          Main
-        </GridItem>
+      </Show>
+      <GridItem gridArea={"main"}>
         <GameGrid />
-        <GenreList/>
-      </Grid>
+      </GridItem>
+    </Grid>
     </>
   );
 }
