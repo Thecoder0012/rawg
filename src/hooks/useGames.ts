@@ -5,10 +5,6 @@ export interface Platform {
   name: string;
   slug: string;
 }
-interface GameResponse {
-  count: number;
-  results: Game[];
-}
 
 export interface Game {
   id: number;
@@ -19,7 +15,7 @@ export interface Game {
 }
 
 const useGames = () => {
-  return useData<Game>("games")
+  return useData<Game>("games");
 };
 
 export default useGames;
