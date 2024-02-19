@@ -17,6 +17,7 @@ export interface Game {
   name: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
+  metacritic: number;
 }
 
 const useGames = () => {
@@ -25,10 +26,11 @@ const useGames = () => {
 
   const fetchGames = async () => {
     try {
-      // const getData = axios.get<GameResponse>(import.meta.env.API + "/games");
       const response = await apiClient.get<GameResponse>("/games", {
         signal: controller.signal,
       });
+      console.log(response.data.results);
+      
       setGames(response.data.results);
     } catch (error) {
       //   if (error instanceof CanceledError) {
