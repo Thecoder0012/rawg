@@ -9,7 +9,6 @@ interface Response<T>{
 const useData = <T>(endpoint: string) => {
   const [data, setData] = useState<T[]>([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("")
 
   const fetchData = async () => {
     const controller = new AbortController();
@@ -19,7 +18,6 @@ const useData = <T>(endpoint: string) => {
       console.log(response.data.results);
       setData(response.data.results);
     } catch (error) {
-        if(error instanceof CanceledError) return;
       console.log(error);
     } finally {
       setLoading(false);
