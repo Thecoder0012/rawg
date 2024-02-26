@@ -12,9 +12,10 @@ import { Genre } from "../hooks/useGenres";
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectedGenre }: Props) => {
+const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
   const { data: genres, loading } = useGenres();
   return (
     <>
@@ -35,6 +36,9 @@ const GenreList = ({ onSelectedGenre }: Props) => {
                   onClick={() => onSelectedGenre(genre)}
                   variant="link"
                   fontSize="lg"
+                  colorScheme={
+                    selectedGenre?.id === genre.id ? "yellow" : "white"
+                  }
                 >
                   {genre.name}
                 </Button>{" "}
