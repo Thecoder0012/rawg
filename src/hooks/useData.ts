@@ -20,7 +20,9 @@ const useData = <T>(endpoint: string) => {
     } catch (error) {
       console.log(error);
     } finally {
-      setLoading(false);
+      if (!controller.signal.aborted) {
+        setLoading(false);
+      }
     }
     return () => controller.abort();
   };
